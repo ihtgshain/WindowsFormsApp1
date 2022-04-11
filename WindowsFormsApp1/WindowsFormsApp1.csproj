@@ -46,25 +46,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Frm01WarnUP.cs">
+    <Compile Include="0.WarmUp\Frm01WarnUP.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Frm01WarnUP.Designer.cs">
+    <Compile Include="0.WarmUp\Frm01WarnUP.Designer.cs">
       <DependentUpon>Frm01WarnUP.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frm02Calandar.cs">
+    <Compile Include="0.WarmUp\Frm02Calandar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Frm02Calandar.Designer.cs">
+    <Compile Include="0.WarmUp\Frm02Calandar.Designer.cs">
       <DependentUpon>Frm02Calandar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="1.OverView\FrmOverView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="1.OverView\FrmOverView.Designer.cs">
+      <DependentUpon>FrmOverView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="1.OverView\practice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="1.OverView\practice.Designer.cs">
+      <DependentUpon>practice.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Frm01WarnUP.resx">
+    <EmbeddedResource Include="0.WarmUp\Frm01WarnUP.resx">
       <DependentUpon>Frm01WarnUP.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Frm02Calandar.resx">
+    <EmbeddedResource Include="0.WarmUp\Frm02Calandar.resx">
       <DependentUpon>Frm02Calandar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="1.OverView\FrmOverView.resx">
+      <DependentUpon>FrmOverView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="1.OverView\practice.resx">
+      <DependentUpon>practice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -87,6 +105,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="2.SqlConnection\" />
+    <Folder Include="3.Connected\" />
+    <Folder Include="4.Disconnected%28DataSet%29\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
