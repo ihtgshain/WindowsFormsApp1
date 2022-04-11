@@ -64,11 +64,10 @@
     <Compile Include="1.OverView\FrmOverView.Designer.cs">
       <DependentUpon>FrmOverView.cs</DependentUpon>
     </Compile>
-    <Compile Include="1.OverView\practice.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="1.OverView\practice.Designer.cs">
-      <DependentUpon>practice.cs</DependentUpon>
+    <Compile Include="NWDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NWDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -81,9 +80,6 @@
     <EmbeddedResource Include="1.OverView\FrmOverView.resx">
       <DependentUpon>FrmOverView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="1.OverView\practice.resx">
-      <DependentUpon>practice.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -93,6 +89,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="NWDataSet.xsc">
+      <DependentUpon>NWDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="NWDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>NWDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="NWDataSet.xss">
+      <DependentUpon>NWDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

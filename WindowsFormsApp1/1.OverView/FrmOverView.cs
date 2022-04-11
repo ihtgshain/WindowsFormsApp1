@@ -16,6 +16,7 @@ namespace WindowsFormsApp1._1.OverView
         public FrmOverView()
         {
             InitializeComponent();
+            tabControl1.SelectedIndex = 1;
         }
 
         private void btnConnected_Click(object sender, EventArgs e)
@@ -25,10 +26,14 @@ namespace WindowsFormsApp1._1.OverView
             //3. SqlDataReader
             //4. UI Control
 
+            SqlConnection conn = null;
+
             try
             {                                          //from 資料連接→屬性→連接字串
-                SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=Northwind;Integrated Security=True");
+                conn = new SqlConnection("Data Source=.;Initial Catalog=Northwind;Integrated Security=True");
                 //implement a new connection.
+                
+                //conn.ConnectionString = ("Data Source=.;Initial Catalog=Northwind;Integrated Security=True");
 
                 conn.Open(); 
 
@@ -46,7 +51,6 @@ namespace WindowsFormsApp1._1.OverView
                     listBox1.Items.Add(s);
                 }
 
-
                 //reader.Read();
                 ////read 1 row;
                 //MessageBox.Show(reader["ProductName"].ToString());
@@ -54,21 +58,67 @@ namespace WindowsFormsApp1._1.OverView
 
                 conn.Close();
 
-                MessageBox.Show("Successfully");
+                //MessageBox.Show("Successfully");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            
+            finally
+            {
+                if(conn != null)
+                    conn.Close();
+            }
+        }
+        //=======================disConnected=========================
+        private void btnDisconnected_Click(object sender, EventArgs e)
+        {
+            //1. SqlConnection
+            //2. SqlDataAdapter
+            //3. DataSet
+            //4. UI Control
+
+            SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=Northwind;Integrated Security=True");
+
+            SqlDataAdapter adapter = new SqlDataAdapter("select * from Products",conn);
+            //adapt DB from Sql to C# with the query
+
+            DataSet ds = new DataSet();
+
+            adapter.Fill(ds);//SqlCommand => SqlDataReader => while(Read()) =>Close;
+
+            this.dataGridView1.DataSource = ds.Tables[0];
         }
 
-        private void btnPractice_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            practice fc = new practice();
-            fc.Owner = this;
-            fc.ShowDialog();
-            
+            SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=Northwind;Integrated Security=True");
+            SqlDataAdapter adapter = new SqlDataAdapter("select * from Categories", conn);
+            DataSet ds = new DataSet();
+            dataGridView1.AllowUserToAddRows = false;
+            adapter.Fill(ds);
+            this.dataGridView1.DataSource = ds.Tables[0];
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=Northwind;Integrated Security=True");
+            SqlDataAdapter adapter = new SqlDataAdapter("select * from Products where UnitPrice > 30", conn);
+            DataSet ds = new DataSet();
+            adapter.Fill(ds);
+            this.dataGridView1.DataSource = ds.Tables[0];
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            productsTableAdapter1.Fill(nwDataSet1.Products);
+            dataGridView2.DataSource = nwDataSet1.Products;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            categoriesTableAdapter1.Fill(nwDataSet1.Categories);
+            dataGridView2.DataSource = nwDataSet1.Categories;
         }
     }
 }
