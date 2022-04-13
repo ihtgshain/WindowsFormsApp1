@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -64,6 +65,38 @@
     <Compile Include="1.OverView\FrmOverView.Designer.cs">
       <DependentUpon>FrmOverView.cs</DependentUpon>
     </Compile>
+    <Compile Include="1.OverView\FrmTool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="1.OverView\FrmTool.Designer.cs">
+      <DependentUpon>FrmTool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="2.SqlConnection\FrmSqlConnection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="2.SqlConnection\FrmSqlConnection.designer.cs">
+      <DependentUpon>FrmSqlConnection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="3.Connected\FrmConnected.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="3.Connected\FrmConnected.designer.cs">
+      <DependentUpon>FrmConnected.cs</DependentUpon>
+    </Compile>
+    <Compile Include="4.Disconnected%28DataSet%29\FrmDisConnected_離線DataSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="4.Disconnected%28DataSet%29\FrmDisConnected_離線DataSet.designer.cs">
+      <DependentUpon>FrmDisConnected_離線DataSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="NWDataSet.cs">
+      <DependentUpon>NWDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="NWDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -80,6 +113,18 @@
     <EmbeddedResource Include="1.OverView\FrmOverView.resx">
       <DependentUpon>FrmOverView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="1.OverView\FrmTool.resx">
+      <DependentUpon>FrmTool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="2.SqlConnection\FrmSqlConnection.resx">
+      <DependentUpon>FrmSqlConnection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="3.Connected\FrmConnected.resx">
+      <DependentUpon>FrmConnected.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="4.Disconnected%28DataSet%29\FrmDisConnected_離線DataSet.resx">
+      <DependentUpon>FrmDisConnected_離線DataSet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -89,6 +134,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
     <None Include="NWDataSet.xsc">
       <DependentUpon>NWDataSet.xsd</DependentUpon>
     </None>
@@ -113,10 +169,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="2.SqlConnection\" />
-    <Folder Include="3.Connected\" />
-    <Folder Include="4.Disconnected%28DataSet%29\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
